@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:music_player/themes/light_mode.dart';
 import 'pages/home_page.dart';
 
 void main() {
@@ -14,6 +15,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: HomePage(),
+      theme: lightMode, // test
+main
     );
   }
 }
