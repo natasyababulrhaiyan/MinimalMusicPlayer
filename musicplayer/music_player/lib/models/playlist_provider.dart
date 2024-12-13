@@ -13,4 +13,25 @@ class PlaylistProvider extends ChangeNotifier {
     ),
 
   ];
+
+  //current song playing index
+  int? _currentSongIndex;
+
+
+  /*
+
+  G E T T E R S
+
+  */
+
+  List<Song> get playlist => _playlist;
+  int? get currentSongIndex => _currentSongIndex;
+
+  /*
+
+  S E T T E R S
+
+  */
 }
+
+
