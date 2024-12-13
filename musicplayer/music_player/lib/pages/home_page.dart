@@ -11,6 +11,17 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  // get the playlist provider
+  late final dynamic playlistProvider;
+
+  @override
+  void initState() {
+  super.initState();
+
+  // get playlist provider
+  playlistProvider = Provider.of<PlaylistProvider>(context).
+}
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,13 +33,26 @@ class _HomePageState extends State<HomePage> {
           //get the playlist
           final List<Song> playlist = value.playlist;
 
-          //return list view UI
-          return ListView.builder(
+          // return list view UI
+            return ListView.builder(
             itemCount: playlist.length,
-            itemBuilder: (context, index) => ListTile(),
-            );
-        }
+            itemBuilder: (context, index) {
+            // get individual song
+            final Song song = playlist [index];
+
+            // return list tile UI
+            return ListTile(
+            title: Text(song.songName),
+            subtitle: Text(song.artistName),
+            leading: Image.asset(song.albumArtImagePath),
+            onTap: () => goToSong (index),
+            ); // ListTile
+          },         
+        );
+        },
       ),
     );
+=======
+    return const Scaffold();
   }
 }
