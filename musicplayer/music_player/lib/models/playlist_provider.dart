@@ -93,6 +93,7 @@ class PlaylistProvider extends ChangeNotifier {
   void playPreviousSong() async {
     // if more than 2 seconds have passed, restart the current song
     if (_currentDuration.inSeconds > 2) {
+      seek(Duration.zero);
     }
     // if it's within first 2 second of the song, go to previous song
     else {
@@ -135,6 +136,9 @@ class PlaylistProvider extends ChangeNotifier {
 
   List<Song> get playlist => _playlist;
   int? get currentSongIndex => _currentSongIndex;
+  bool get isPlaying ==> _isPlaying;
+  Duration get currentDuration ==> _currentDuration;
+  Duration get totalDuration ==> _totalDuration;
 
   /*
 
@@ -147,6 +151,10 @@ class PlaylistProvider extends ChangeNotifier {
 
     // update current song index
     _currentSongIndex = newIndex;
+
+    if (newIndex != null) {
+      play(); // play the song at the new index
+    }
 
     // update UI
     notifyListeners();
