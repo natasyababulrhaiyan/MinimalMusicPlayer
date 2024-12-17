@@ -16,7 +16,17 @@ class PlaylistProvider extends ChangeNotifier {
 
   //current song playing index
   int? _currentSongIndex;
+  /*
 
+  A U D I O P L A Y E R
+
+  */
+
+  // audio player
+
+  // duration
+
+  // constructor
 
   /*
 

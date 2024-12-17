@@ -14,13 +14,25 @@ class Neubox extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         color: Theme.of(context).colorScheme.background,
-        boxShadow: [
+        borderRadius: BorderRadius.circular(12),
+        boxShadow:[
           // darker shadow on bottom right
+          BoxShadow(
+            color:Colors.grey.shade300,
+            blurRadius: 15,
+            offset: const Offset(4,4 ),
+          ),
 
           // lighter shadow on top left
+          BoxShadow(
+            color:Colors.white,
+            blurRadius: 15,
+            offset: const Offset(-4,-4 ),
+          ),
         ]
-        ),
-        child: child,
+      ),
+      padding: const EdgeInsets.all(12),
+      child: child,
     );
   }
 }
