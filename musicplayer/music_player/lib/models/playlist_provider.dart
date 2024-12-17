@@ -1,3 +1,4 @@
+import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:music_player/models/song.dart';
 
@@ -23,10 +24,60 @@ class PlaylistProvider extends ChangeNotifier {
   */
 
   // audio player
+  final AudioPlayer _audioPlayer = AudioPlayer();
 
   // duration
+  Duration _currentDuration = Duration.zero;
+  Duration _totalDuration = Duration.zero;
 
   // constructor
+  PlaylistProvider() {
+    listenToDuration();
+  }
+
+  // initialy not playing
+  bool _isPlaying = false;
+
+  // play the song
+  void play() async {
+    final String path = _playlist[_currentSongIndex!].audioPath;
+    await _audioPlayer.stop(); // stop current song
+    await _audioPlayer.play(AssetSource(path)); // play the new song
+    _isPlaying = true;
+    notifyListeners();
+  }
+
+  // pause current song
+
+  // resume playing
+
+  // pause or resume
+
+  // seek to a specific position in the current song
+
+  // play next song
+
+  // play previous song
+
+  // list to duration
+  void listenToDuration() {
+    // listen for total duration
+    _audioPlayer.onDurationChanged.listen((newDuration) {
+      _totalDuration = newDuration;
+      notifyListeners();
+    });
+
+    // listen for current duration
+    _audioPlayer.onPositionChanged.listen((newPosition) {
+      _currentDuration = newPosition;
+      notifyListeners();
+    });
+
+    // listen for song completion
+    _audioPlayer.onPlayerComplete.listen((event) {});
+  }
+
+  // dispose audio player
 
   /*
 
