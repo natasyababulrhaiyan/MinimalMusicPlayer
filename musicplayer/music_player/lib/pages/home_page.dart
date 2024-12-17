@@ -3,6 +3,7 @@ import 'package:music_player/components/my_drawer.dart';
 import 'package:music_player/models/playlist_provider.dart';
 import 'package:music_player/models/song.dart';
 import 'package:music_player/pages/song_page.dart';
+import 'package:provider/provider.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
