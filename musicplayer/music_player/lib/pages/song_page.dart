@@ -100,7 +100,7 @@ class SongPage extends StatelessWidget {
 
                 const SizedBox(height: 25),
             
-                // song duration progress 
+                // song duration progress
                 Column(
                   children: [
                     const Padding(
