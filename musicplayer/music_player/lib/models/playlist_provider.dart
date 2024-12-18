@@ -146,7 +146,7 @@ class PlaylistProvider extends ChangeNotifier {
 
   */
 
-  // 
+  //
   set currentSongIndex(int? newIndex) {
 
     // update current song index
